@@ -17,6 +17,9 @@
   5.mocha --recursive --watch(-w)(监视指定的测试脚本。只要测试脚本有变化，就会自动运行Mocha)
   
   6.mocha --recursive -R markdown > result.md(result.html)(生成测试文档)
+  
+###异步测试
+  Mocha默认每个测试用例最多执行2000毫秒, -t参数可修改执行时间
 
 ###mocha.opts
   在test目录中使用mocha.opts文件
@@ -33,8 +36,42 @@
     
   等同于ocha --recursive -R mochawesome -G
 
-###异步测试
-  Mocha默认每个测试用例最多执行2000毫秒, -t参数可修改执行时间
+
+###DEMO
+  var expect = require('chai').expect;(引入断言库)
+
+  describe('单元测试名', function() {
+    it('测试用例信息', function() {
+      expect(fn(arguments)).to.be.equal(result);
+    });
+  });
+  
+  // 相等或不相等
+  expect(4 + 5).to.be.equal(9);
+  expect(4 + 5).to.be.not.equal(10);
+  expect(foo).to.be.deep.equal({ bar: 'baz' });
+  
+  // 布尔值为true
+  expect('everthing').to.be.ok;
+  expect(false).to.not.be.ok;
+  
+  // typeof
+  expect('test').to.be.a('string');
+  expect({ foo: 'bar' }).to.be.an('object');
+  expect(foo).to.be.an.instanceof(Foo);
+  
+  // include
+  expect([1,2,3]).to.include(2);
+  expect('foobar').to.contain('foo');
+  expect({ foo: 'bar', hello: 'universe' }).to.include.keys('foo');
+  
+  // empty
+  expect([]).to.be.empty;
+  expect('').to.be.empty;
+  expect({}).to.be.empty;
+  
+  // match
+  expect('foobar').to.match(/^foo/);
   
 
     describe('hooks', function() {
