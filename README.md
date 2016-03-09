@@ -20,7 +20,9 @@
   
 ###异步测试
   Mocha默认每个测试用例最多执行2000毫秒, -t参数可修改执行时间
-
+  
+  mocha -t 5000 a.test.js
+  
 ###mocha.opts
   在test目录中使用mocha.opts文件
   
@@ -47,27 +49,38 @@
   });
   
   // 相等或不相等
-  expect(4 + 5).to.be.equal(9);
-  expect(4 + 5).to.be.not.equal(10);
-  expect(foo).to.be.deep.equal({ bar: 'baz' });
+  
+  expect(1 + 1).to.be.equal(2);
+  
+  expect(1 + 1).to.be.not.equal(10);
+  
+  expect(obj).to.be.deep.equal({ a: 'a' });
   
   // 布尔值为true
-  expect('everthing').to.be.ok;
+  expect('a').to.be.ok;
   expect(false).to.not.be.ok;
   
   // typeof
-  expect('test').to.be.a('string');
-  expect({ foo: 'bar' }).to.be.an('object');
+  
+  expect('a').to.be.a('string');
+  
+  expect({ a: 'a' }).to.be.an('object');
+  
   expect(foo).to.be.an.instanceof(Foo);
   
   // include
   expect([1,2,3]).to.include(2);
+  
   expect('foobar').to.contain('foo');
+  
   expect({ foo: 'bar', hello: 'universe' }).to.include.keys('foo');
   
   // empty
+  
   expect([]).to.be.empty;
+  
   expect('').to.be.empty;
+  
   expect({}).to.be.empty;
   
   // match
@@ -95,7 +108,7 @@
     });
 
   
-  
+参考： 阮一峰的网络日志  测试框架 Mocha 实例教程(http://www.ruanyifeng.com/blog/2015/12/a-mocha-tutorial-of-examples.html)
   
   
   
