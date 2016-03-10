@@ -40,17 +40,18 @@
 
 
 ###DEMO
-  var expect = require('chai').expect;(引入断言库)
 
-  describe('单元测试名', function() {
+    var expect = require('chai').expect;(引入断言库)
   
-    it('测试用例信息', function() {
+    describe('单元测试名', function() {
     
-      expect(fn(arguments)).to.be.equal(result);
+      it('测试用例信息', function() {
+      
+        expect(fn(arguments)).to.be.equal(result);
+        
+      });
       
     });
-    
-  });
   
   // 相等或不相等
   
